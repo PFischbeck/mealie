@@ -318,7 +318,7 @@ export default defineComponent({
 
     // @ts-ignore
     const { recipeImage } = useStaticRoutes();
-    const { meta, title } = useMeta();
+    const { meta, title, script } = useMeta();
 
     const recipe = useAsync(async () => {
       const { data } = await api.recipes.getShared(id);
@@ -330,30 +330,38 @@ export default defineComponent({
 
           meta.value = [
             { hid: "og:title", property: "og:title", content: data.name },
-            // @ts-ignore
             {
               hid: "og:desc",
               property: "og:description",
               content: data.description,
             },
             {
-              hid: "og-image",
+              hid: "og:image",
               property: "og:image",
               content: imageURL,
             },
-            // @ts-ignore
             {
               hid: "twitter:title",
               property: "twitter:title",
               content: data.name,
             },
-            // @ts-ignore
             {
               hid: "twitter:desc",
               property: "twitter:description",
               content: data.description,
             },
             { hid: "t-type", name: "twitter:card", content: "summary_large_image" },
+
+          ];
+          script.value = [{ type: "application/ld+json", json: {
+              "@context": "http://schema.org",
+              "@type": "Recipe",
+              name: data.name,
+              description: data.description,
+              image: imageURL,
+              cookTime: data.totalTime,
+              recipeYield: data.recipeYield
+              }}
           ];
         }
         return data;
