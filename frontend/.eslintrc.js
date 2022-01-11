@@ -24,9 +24,6 @@ module.exports = {
     // "plugin:prettier/recommended",
     "prettier",
   ],
-  // Re-add once we use nuxt bridge
-  // See https://v3.nuxtjs.org/getting-started/bridge#update-nuxtconfig
-  ignorePatterns: ["nuxt.config.js", "lib/api/types/**/*.ts"],
   plugins: ["prettier"],
   // add your custom rules here
   rules: {

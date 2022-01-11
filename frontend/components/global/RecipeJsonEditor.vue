@@ -1,4 +1,5 @@
 <template>
+  <client-only>
   <VJsoneditor
     :value="value"
     height="1500px"
@@ -6,15 +7,13 @@
     :attrs="$attrs"
     @input="$emit('input', $event)"
   ></VJsoneditor>
+    </client-only>
 </template>
 
 <script lang="ts">
-// @ts-ignore v-jsoneditor has no types
-import VJsoneditor from "v-jsoneditor";
 import { defineComponent } from "@nuxtjs/composition-api";
 
 export default defineComponent({
-  components: { VJsoneditor },
   props: {
     value: {
       type: Object,

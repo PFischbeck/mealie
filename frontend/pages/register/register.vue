@@ -255,7 +255,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, useRouter, Ref, useContext, computed } from "@nuxtjs/composition-api";
+import { computed, defineComponent, onMounted, ref, useRouter, Ref, useContext } from "@nuxtjs/composition-api";
 import { useDark } from "@vueuse/core";
 import { States, RegistrationType, useRegistration } from "./states";
 import { useRouteQuery } from "~/composables/use-router";

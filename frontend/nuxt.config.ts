@@ -1,4 +1,6 @@
-export default {
+import { defineNuxtConfig } from "@nuxt/bridge";
+
+export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Mealie",
@@ -42,7 +44,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [{ src: "~/assets/css/main.css" }, { src: "~/assets/css/main.css" }, { src: "~/assets/style-overrides.scss" }],
+  css: ["~/assets/css/main.css", "~/assets/css/main.css", "~/assets/style-overrides.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ["~/plugins/globals.ts", "~/plugins/theme.ts", "~/plugins/toast.client.ts", "~/plugins/dark-mode.client.ts"],
@@ -52,28 +54,12 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    [
-      "@nuxt/typescript-build",
-      // Fix slow builds
-      // https://github.com/nuxt/nuxt.js/issues/8310#issuecomment-734984360
-      {
-        typeCheck: {
-          typescript: {
-            enabled: true,
-            mode: "write-tsbuildinfo",
-          },
-        },
-      },
-    ],
     // https://go.nuxtjs.dev/vuetify
     "@nuxtjs/vuetify",
-    // https://composition-api.nuxtjs.org/getting-started/setup
-    "@nuxtjs/composition-api/module",
-    // https://vite.nuxtjs.org/getting-started/installation
-    "nuxt-vite",
     // https://google-fonts.nuxtjs.org/setup
     "@nuxtjs/google-fonts",
+    // https://vueuse.org/guide/
+    "@vueuse/nuxt",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -207,40 +193,40 @@ export default {
     vueI18n: {
       dateTimeFormats: {
         // CODE_GEN_ID: DATE_LOCALES
-        "el-GR": require("./lang/dateTimeFormats/el-GR.json"),
-        "it-IT": require("./lang/dateTimeFormats/it-IT.json"),
-        "ko-KR": require("./lang/dateTimeFormats/ko-KR.json"),
-        "es-ES": require("./lang/dateTimeFormats/es-ES.json"),
-        "ja-JP": require("./lang/dateTimeFormats/ja-JP.json"),
-        "bg-BG": require("./lang/dateTimeFormats/bg-BG.json"),
-        "zh-CN": require("./lang/dateTimeFormats/zh-CN.json"),
-        "tr-TR": require("./lang/dateTimeFormats/tr-TR.json"),
-        "ar-SA": require("./lang/dateTimeFormats/ar-SA.json"),
-        "hu-HU": require("./lang/dateTimeFormats/hu-HU.json"),
-        "pt-PT": require("./lang/dateTimeFormats/pt-PT.json"),
-        "no-NO": require("./lang/dateTimeFormats/no-NO.json"),
-        "sv-SE": require("./lang/dateTimeFormats/sv-SE.json"),
-        "ro-RO": require("./lang/dateTimeFormats/ro-RO.json"),
-        "sk-SK": require("./lang/dateTimeFormats/sk-SK.json"),
-        "uk-UA": require("./lang/dateTimeFormats/uk-UA.json"),
-        "fr-CA": require("./lang/dateTimeFormats/fr-CA.json"),
-        "pl-PL": require("./lang/dateTimeFormats/pl-PL.json"),
-        "da-DK": require("./lang/dateTimeFormats/da-DK.json"),
-        "pt-BR": require("./lang/dateTimeFormats/pt-BR.json"),
-        "de-DE": require("./lang/dateTimeFormats/de-DE.json"),
-        "ca-ES": require("./lang/dateTimeFormats/ca-ES.json"),
-        "sr-SP": require("./lang/dateTimeFormats/sr-SP.json"),
-        "cs-CZ": require("./lang/dateTimeFormats/cs-CZ.json"),
-        "fr-FR": require("./lang/dateTimeFormats/fr-FR.json"),
-        "zh-TW": require("./lang/dateTimeFormats/zh-TW.json"),
-        "af-ZA": require("./lang/dateTimeFormats/af-ZA.json"),
-        "ru-RU": require("./lang/dateTimeFormats/ru-RU.json"),
-        "he-IL": require("./lang/dateTimeFormats/he-IL.json"),
-        "nl-NL": require("./lang/dateTimeFormats/nl-NL.json"),
-        "en-US": require("./lang/dateTimeFormats/en-US.json"),
-        "en-GB": require("./lang/dateTimeFormats/en-GB.json"),
-        "fi-FI": require("./lang/dateTimeFormats/fi-FI.json"),
-        "vi-VN": require("./lang/dateTimeFormats/vi-VN.json"),
+        "el-GR": import("./lang/dateTimeFormats/el-GR.json"),
+        "it-IT": import("./lang/dateTimeFormats/it-IT.json"),
+        "ko-KR": import("./lang/dateTimeFormats/ko-KR.json"),
+        "es-ES": import("./lang/dateTimeFormats/es-ES.json"),
+        "ja-JP": import("./lang/dateTimeFormats/ja-JP.json"),
+        "bg-BG": import("./lang/dateTimeFormats/bg-BG.json"),
+        "zh-CN": import("./lang/dateTimeFormats/zh-CN.json"),
+        "tr-TR": import("./lang/dateTimeFormats/tr-TR.json"),
+        "ar-SA": import("./lang/dateTimeFormats/ar-SA.json"),
+        "hu-HU": import("./lang/dateTimeFormats/hu-HU.json"),
+        "pt-PT": import("./lang/dateTimeFormats/pt-PT.json"),
+        "no-NO": import("./lang/dateTimeFormats/no-NO.json"),
+        "sv-SE": import("./lang/dateTimeFormats/sv-SE.json"),
+        "ro-RO": import("./lang/dateTimeFormats/ro-RO.json"),
+        "sk-SK": import("./lang/dateTimeFormats/sk-SK.json"),
+        "uk-UA": import("./lang/dateTimeFormats/uk-UA.json"),
+        "fr-CA": import("./lang/dateTimeFormats/fr-CA.json"),
+        "pl-PL": import("./lang/dateTimeFormats/pl-PL.json"),
+        "da-DK": import("./lang/dateTimeFormats/da-DK.json"),
+        "pt-BR": import("./lang/dateTimeFormats/pt-BR.json"),
+        "de-DE": import("./lang/dateTimeFormats/de-DE.json"),
+        "ca-ES": import("./lang/dateTimeFormats/ca-ES.json"),
+        "sr-SP": import("./lang/dateTimeFormats/sr-SP.json"),
+        "cs-CZ": import("./lang/dateTimeFormats/cs-CZ.json"),
+        "fr-FR": import("./lang/dateTimeFormats/fr-FR.json"),
+        "zh-TW": import("./lang/dateTimeFormats/zh-TW.json"),
+        "af-ZA": import("./lang/dateTimeFormats/af-ZA.json"),
+        "ru-RU": import("./lang/dateTimeFormats/ru-RU.json"),
+        "he-IL": import("./lang/dateTimeFormats/he-IL.json"),
+        "nl-NL": import("./lang/dateTimeFormats/nl-NL.json"),
+        "en-US": import("./lang/dateTimeFormats/en-US.json"),
+        "en-GB": import("./lang/dateTimeFormats/en-GB.json"),
+        "fi-FI": import("./lang/dateTimeFormats/fi-FI.json"),
+        "vi-VN": import("./lang/dateTimeFormats/vi-VN.json"),
         // END: DATE_LOCALES
       },
       fallbackLocale: "en-US",
@@ -359,17 +345,20 @@ export default {
   vuetify: {
     optionsPath: "./vuetify.options.js",
   },
-
+  /*
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build
     analyze: false,
     babel: {
       plugins: [
-        ["@babel/plugin-proposal-private-property-in-object", { loose: true }],
+        ["@babel/plugin-proposal-private-property-in-object", {loose: true}],
         // ["@nuxtjs/composition-api/dist/babel-plugin"],
       ],
     },
     transpile: process.env.NODE_ENV !== "production" ? [/@vue[\\/]composition-api/] : null,
+  }, */
+  bridge: {
+    vite: false,
   },
-};
+});
